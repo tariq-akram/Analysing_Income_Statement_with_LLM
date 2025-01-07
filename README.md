@@ -65,15 +65,15 @@ Once the application starts, follow these steps:
    - Generate and view summaries for each extracted table.
 
 ## 📁 Project Structure
-pdf-table-extraction/
-├── app.py                    # Main application file
-├── requirements.txt           # Python dependencies
-├── utils/                     # Utility scripts for table extraction and summarization
-│   ├── table_extraction.py    # Script to handle table extraction from PDF
-│   └── summarization.py       # Script to summarize extracted table data
-├── README.md                 # Project overview and instructions
-└── assets/                    # (Optional) Folder for additional icons or images
-    └── icons/                 # Folder for storing icon files
+'''pdf-table-extraction/'''
+├── '''app.py '''                   # Main application file
+├──''' requirements.txt '''          # Python dependencies
+├── '''utils/ '''                    # Utility scripts for table extraction and summarization
+│   ├── '''table_extraction.py'''    # Script to handle table extraction from PDF
+│   └── '''summarization.py'''       # Script to summarize extracted table data
+├── '''README.md  '''               # Project overview and instructions
+└── '''assets/     '''               # (Optional) Folder for additional icons or images
+    └── icons/   '''              # Folder for storing icon files
 
 
 - **`app.py`**: The main Streamlit application file.
@@ -129,7 +129,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 📧 Contact
 
-For any inquiries or feedback, please reach out to [your.email@example.com](mailto:your.email@example.com).
+For any inquiries or feedback, please reach out to [Mail](jitendrakolli18@gmail.com).
 
 ---
 
