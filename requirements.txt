@@ -1,4 +1,3 @@
-# Streamlit and core dependencies
 streamlit>=1.12.0
 unstructured[all-docs]>=0.4.0
 transformers>=4.0.0
@@ -8,16 +7,8 @@ bitsandbytes==0.42.0
 torch>=1.10.0
 lxml>=4.6.0
 Pillow>=8.0.0
-PyPDF2==3.0.1
+PyMuPDF>=1.18.0
 ipython
 accelerate>=0.26.0
-
-# OpenCV version that supports Python 3.10
-opencv-python-headless==4.5.5.64  # Headless version for cloud environments
-
-# Unstructured and layoutparser versions
-unstructured==0.4.5
-unstructured-inference==0.4.3
-layoutparser==0.3.4
-
-mistralai  
+mistralai
+PyPDF2
