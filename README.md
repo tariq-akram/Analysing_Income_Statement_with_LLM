@@ -135,5 +135,5 @@ For any inquiries or feedback, please reach out to [Jitendra Kolli](jitendrakoll
 <div align="center">
   <img src="https://img.icons8.com/color/48/000000/pdf-2.png" alt="PDF Icon" /> 
   <img src="https://img.icons8.com/color/48/000000/table.png" alt="Table Icon" /> 
-  <img src="https://img.icons8.com/color/48/000000/summarize.png" alt="Summarization Icon" />
+<!--   <img src="https://img.icons8.com/color/48/000000/summarize.png" alt="Summarization Icon" /> -->
 </div>
