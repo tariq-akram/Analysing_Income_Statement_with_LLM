@@ -14,4 +14,5 @@ opencv-python==4.5.5.64
 unstructured==0.4.6
 unstructured-inference==0.4.3
 layoutparser==0.3.4
-mistralai==0.0.1
+mistralai
+
