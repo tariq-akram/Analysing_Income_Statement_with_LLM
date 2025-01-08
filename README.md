@@ -17,7 +17,7 @@ Follow these steps to set up the project locally:
 1. **🔀 Clone the Repository:**
 
    ```bash
-   git clone https://github.com/yourusername/pdf-table-extraction.git
+   git clone [[https://github.com/yourusername/pdf-table-extraction.git](https://github.com/jitendra-789/Analysing_Income_Statement_with_LLM.git)](https://github.com/jitendra-789/Analysing_Income_Statement_with_LLM.git)
    cd pdf-table-extraction
    ```
 
