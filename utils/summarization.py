@@ -4,12 +4,12 @@ from mistralai import Mistral
 
 def initialize_llm_pipeline(model_name="mistralai/Mistral-7B-Instruct-v0.2"):
 
-    tokenizer = AutoTokenizer.from_pretrained(model_name,cache_dir="/Users/jitendrakolli/Downloads/Infosys/Project/cache")
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
 
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
         device_map="auto",
-        cache_dir="/Users/jitendrakolli/Downloads/Infosys/Project/cache",
+        # cache_dir="/Users/jitendrakolli/Downloads/Infosys/Project/cache",
         # load_in_8bit=True  # Enable 8-bit quantization if needed
     )
 
