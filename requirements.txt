@@ -12,3 +12,13 @@ ipython
 accelerate>=0.26.0
 mistralai
 PyPDF2
+
+pdf2image>=1.16.0  # Required by unstructured for PDF processing
+python-poppler  # Python bindings for poppler
+beautifulsoup4>=4.9.3  # Required for table parsing
+html5lib>=1.1  # Alternative HTML parser
+tabulate>=0.8.9  # For table formatting
+pytesseract>=0.3.8  # Python wrapper for Tesseract OCR
+
+
+huggingface-cli>=0.1.0
