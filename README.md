@@ -142,12 +142,6 @@ Follow these steps to set up the project locally:
        source venv/bin/activate
        ```
 
-5. **📦 Install Dependencies:**
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
 ## 🖥️ Usage
 
 Run the Streamlit application using the following command:
