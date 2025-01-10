@@ -122,8 +122,14 @@ Follow these steps to set up the project locally:
 
 4. **🐍 Create a Virtual Environment:**
 
+   **Windows:**
    ```bash
    python -m venv venv
+   ```
+
+   **macOS/Linux:**
+   ```bash
+   python3 -m venv venv
    ```
 
    - **Activate the Virtual Environment:**
