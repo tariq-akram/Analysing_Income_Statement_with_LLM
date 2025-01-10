@@ -14,8 +14,8 @@ Welcome to the **PDF Table Extraction & Summarization** project! This applicatio
 
 Follow these steps to set up the project locally:
 
-1. **🔀 Clone the Repository:**
 
+1. **🔀 Clone the Repository:**
    ```bash
    git clone https://github.com/jitendra-789/Analysing_Income_Statement_with_LLM.git
    cd pdf-table-extraction
@@ -23,27 +23,63 @@ Follow these steps to set up the project locally:
 
 2. **📥 Install Required System Dependencies:**
 
-   > **⚠️ Python Compatibility**: This project requires Python version 3.8 to 3.11. These versions are compatible with Windows, macOS, and Linux, and also with many Modules. Please ensure you have a compatible Python version installed before proceeding.
+   > **⚠️ Python Compatibility**: This project requires Python version 3.9 to 3.11 (3.10 recommended). Python 3.13 is not supported by some dependencies.
 
-   First, install Python dependencies:
+   **Version Notes:**
+   - ✅ Python 3.9: Fully compatible
+   - ✅ Python 3.10: Recommended version (best stability)
+   - ✅ Python 3.11: Compatible but some packages might need additional setup
+   - ❌ Python 3.8: Too old, missing required features
+   - ❌ Python 3.12+: Not supported by key dependencies
 
+   First, ensure you have the correct Python version:
+   ```bash
+   # Check Python version
+   python --version  # Windows
+   python3 --version  # macOS/Linux
+   ```
+
+   Create and activate virtual environment:
    **Windows:**
    ```bash
-   # Make sure your pip is up to date
+   # Create virtual environment
+   python -m venv venv
+   
+   # Activate virtual environment
+   venv\Scripts\activate
+   
+   # Upgrade pip
    python -m pip install --upgrade pip
-
-   # Install all requirements
+   
+   # Install PyTorch first (CPU version)
+   python -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+   
+   # Install other requirements
    python -m pip install -r requirements.txt
    ```
 
    **macOS/Linux:**
    ```bash
-   # Make sure your pip is up to date
+   # Create virtual environment
+   python3 -m venv venv
+   
+   # Activate virtual environment
+   source venv/bin/activate
+   
+   # Upgrade pip
    pip3 install --upgrade pip
-
-   # Install all requirements
+   
+   # Install PyTorch first (MPS/CPU version for Apple Silicon/Intel)
+   pip3 install torch torchvision torchaudio
+   
+   # Install other requirements
    pip3 install -r requirements.txt
    ```
+
+   If you encounter any PyTorch-related errors:
+   1. Visit [PyTorch Get Started](https://pytorch.org/get-started/locally/)
+   2. Select your operating system and preferences
+   3. Use the provided installation command before installing other requirements
 
    **Windows:**
    ```bash
@@ -81,8 +117,13 @@ Follow these steps to set up the project locally:
    # Install Tesseract
    brew install tesseract
    ```
+3. **📦 Install Dependencies:**
 
-3. **🔑 Configure Hugging Face:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **🔑 Configure Hugging Face:**
 
    a. Create a Hugging Face account at https://huggingface.co/
    
@@ -120,27 +161,6 @@ Follow these steps to set up the project locally:
    echo "export HUGGING_FACE_TOKEN='your_token_here'" >> ~/.bashrc
    ```
 
-4. **🐍 Create a Virtual Environment:**
-
-   **Windows:**
-   ```bash
-   python -m venv venv
-   ```
-
-   **macOS/Linux:**
-   ```bash
-   python3 -m venv venv
-   ```
-
-   - **Activate the Virtual Environment:**
-     - **Windows:**
-       ```bash
-       venv\Scripts\activate
-       ```
-     - **macOS/Linux:**
-       ```bash
-       source venv/bin/activate
-       ```
 
 ## 🖥️ Usage
 
