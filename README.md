@@ -21,7 +21,106 @@ Follow these steps to set up the project locally:
    cd pdf-table-extraction
    ```
 
-2. **🐍 Create a Virtual Environment (Optional but Recommended):**
+2. **📥 Install Required System Dependencies:**
+
+   > **⚠️ Python Compatibility**: This project requires Python version 3.8 to 3.11. These versions are compatible with Windows, macOS, and Linux, and also with many Modules. Please ensure you have a compatible Python version installed before proceeding.
+
+   First, install Python dependencies:
+
+   **Windows:**
+   ```bash
+   # Make sure your pip is up to date
+   python -m pip install --upgrade pip
+
+   # Install all requirements
+   python -m pip install -r requirements.txt
+   ```
+
+   **macOS/Linux:**
+   ```bash
+   # Make sure your pip is up to date
+   pip3 install --upgrade pip
+
+   # Install all requirements
+   pip3 install -r requirements.txt
+   ```
+
+   **Windows:**
+   ```bash
+   # Install Poppler
+   winget install poppler
+   # OR download from: http://blog.alivate.com.au/poppler-windows/
+   
+   # Install Tesseract
+   winget install tesseract-ocr
+   # OR download installer from: https://github.com/UB-Mannheim/tesseract/wiki
+   ```
+
+   **macOS:**
+   
+   First, install Homebrew if you haven't already:
+   ```bash
+   # Install Homebrew
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   
+   # After installation, add Homebrew to your PATH:
+   # For Intel Macs
+   echo 'eval "$(/usr/local/bin/brew shellenv)"' >> ~/.zshrc
+   # For Apple Silicon Macs
+   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
+   
+   # Reload your shell configuration
+   source ~/.zshrc
+   ```
+
+   Then install the required dependencies:
+   ```bash
+   # Install Poppler
+   brew install poppler
+   
+   # Install Tesseract
+   brew install tesseract
+   ```
+
+3. **🔑 Configure Hugging Face:**
+
+   a. Create a Hugging Face account at https://huggingface.co/
+   
+   b. Generate an access token:
+      - Go to https://huggingface.co/settings/tokens
+      - Click "New token"
+      - Name your token and select "read" role
+      - Copy the generated token
+   
+   c. Login using the CLI:
+
+   **Windows:**
+   ```bash
+   huggingface-cli login
+   # Enter your token when prompted
+   ```
+
+   **macOS/Linux:**
+   ```bash
+   huggingface-cli login
+   # Enter your token when prompted
+   ```
+
+   d. Set up environment variable:
+   
+   **Windows:**
+   ```bash
+   setx HUGGING_FACE_TOKEN "your_token_here"
+   ```
+
+   **macOS/Linux:**
+   ```bash
+   echo "export HUGGING_FACE_TOKEN='your_token_here'" >> ~/.zshrc
+   # OR for bash
+   echo "export HUGGING_FACE_TOKEN='your_token_here'" >> ~/.bashrc
+   ```
+
+4. **🐍 Create a Virtual Environment:**
 
    ```bash
    python -m venv venv
@@ -37,7 +136,7 @@ Follow these steps to set up the project locally:
        source venv/bin/activate
        ```
 
-3. **📦 Install Dependencies:**
+5. **📦 Install Dependencies:**
 
    ```bash
    pip install -r requirements.txt
