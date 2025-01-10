@@ -91,15 +91,26 @@ def main():
     # Header
     st.markdown('<div class="header">📄 PDF Table Extraction and Summarization</div>', unsafe_allow_html=True)
     
+    # Move temp_filename to session state to persist across reruns
+    if 'temp_filename' not in st.session_state:
+        st.session_state.temp_filename = None
+    
     # Sidebar for file upload
     with st.sidebar:
         st.markdown('<h2 style="color: white;">Upload Your PDF</h2>', unsafe_allow_html=True)
         uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
-        temp_filename = None  # Initialize temporary filename variable
+        
         if uploaded_file is not None:
+            # Clean up previous temporary file if it exists
+            if st.session_state.temp_filename and os.path.exists(st.session_state.temp_filename):
+                try:
+                    os.remove(st.session_state.temp_filename)
+                except Exception as e:
+                    st.warning(f"Could not delete previous temporary file: {e}")
+            
             # Save uploaded file to a unique temporary location
-            temp_filename = f"temp_{uuid.uuid4().hex}.pdf"
-            with open(temp_filename, "wb") as f:
+            st.session_state.temp_filename = f"temp_{uuid.uuid4().hex}.pdf"
+            with open(st.session_state.temp_filename, "wb") as f:
                 f.write(uploaded_file.getbuffer())
             st.markdown('<div class="success">✅ PDF Uploaded Successfully!</div>', unsafe_allow_html=True)
 
@@ -108,7 +119,7 @@ def main():
             # ------------------ Preview Section ------------------
             st.markdown('<div class="section"><div class="subheader">📖 PDF Preview</div>', unsafe_allow_html=True)
             try:
-                with open(temp_filename, "rb") as f:
+                with open(st.session_state.temp_filename, "rb") as f:
                     pdf_bytes = f.read()
                     base64_pdf = base64.b64encode(pdf_bytes).decode('utf-8')
                     pdf_display = f"""
@@ -123,7 +134,7 @@ def main():
             st.markdown('<div class="section"><div class="subheader">📊 Extracted Tables</div>', unsafe_allow_html=True)
             with st.spinner("🔄 Extracting tables from PDF..."):
                 try:
-                    dfs, table_html = extract_tables_from_pdf(temp_filename)
+                    dfs, table_html = extract_tables_from_pdf(st.session_state.temp_filename)
                 except Exception as e:
                     st.markdown(f'<div class="error">⚠️ Error extracting tables: {e}</div>', unsafe_allow_html=True)
                     return
@@ -139,13 +150,13 @@ def main():
             # ------------------ Summarization Section ------------------
             st.markdown('<div class="section"><div class="subheader">📝 Summarization</div>', unsafe_allow_html=True)
             if dfs:
-                llm_pipeline = initialize_llm_pipeline()
+                # llm_pipeline = initialize_llm_pipeline()
                 # Summarization
                 st.header("📝 Summarization")
                 try:
                     for idx, df in enumerate(dfs):
                         table_text = df.to_string(index=False)
-                        summary = summarize_table(llm_pipeline, table_text)
+                        summary = summarize_table(table_text)
                         st.subheader(f"Summary of Table {idx + 1}")
                         
                         st.write(summary)
@@ -155,9 +166,11 @@ def main():
         
         finally:
             # Clean up temporary file after all operations
-            if temp_filename and os.path.exists(temp_filename):
+            if st.session_state.temp_filename and os.path.exists(st.session_state.temp_filename):
                 try:
-                    os.remove(temp_filename)
+                    os.close_fds()  # Close any open file descriptors
+                    os.remove(st.session_state.temp_filename)
+                    st.session_state.temp_filename = None
                 except Exception as e:
                     st.markdown(f'<div class="warning">⚠️ Could not delete temporary file: {e}</div>', unsafe_allow_html=True)
 
