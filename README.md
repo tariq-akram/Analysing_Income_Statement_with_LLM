@@ -39,11 +39,13 @@ Follow these steps to set up the project locally:
    python3 --version  # macOS/Linux
    ```
 
-   Create and activate virtual environment:
    **Windows:**
    ```bash
-   # Create virtual environment
-   python -m venv venv
+   # Install Python 3.10 if needed
+   winget install Python.Python.3.10
+
+   # Create virtual environment with Python 3.10
+   py -3.10 -m venv venv
    
    # Activate virtual environment
    venv\Scripts\activate
@@ -51,17 +53,17 @@ Follow these steps to set up the project locally:
    # Upgrade pip
    python -m pip install --upgrade pip
    
-   # Install PyTorch first (CPU version)
-   python -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
-   
-   # Install other requirements
-   python -m pip install -r requirements.txt
+   # Verify Python version
+   python --version  # Should show Python 3.10.x
    ```
 
    **macOS/Linux:**
    ```bash
-   # Create virtual environment
-   python3 -m venv venv
+   # Install Python 3.10 if needed
+   brew install python@3.10
+   
+   # Create virtual environment with Python 3.10
+   python3.10 -m venv venv
    
    # Activate virtual environment
    source venv/bin/activate
@@ -69,11 +71,20 @@ Follow these steps to set up the project locally:
    # Upgrade pip
    pip3 install --upgrade pip
    
-   # Install PyTorch first (MPS/CPU version for Apple Silicon/Intel)
-   pip3 install torch torchvision torchaudio
+   # Verify Python version
+   python3 --version  # Should show Python 3.10.x
+   ```
+
+   If you have multiple Python versions installed, you can also use these alternative paths:
+   ```bash
+   # Windows alternative
+   C:\Python310\python -m venv venv
    
-   # Install other requirements
-   pip3 install -r requirements.txt
+   # macOS alternative (Intel)
+   /usr/local/opt/python@3.10/bin/python3.10 -m venv venv
+   
+   # macOS alternative (Apple Silicon)
+   /opt/homebrew/opt/python@3.10/bin/python3.10 -m venv venv
    ```
 
    If you encounter any PyTorch-related errors:
