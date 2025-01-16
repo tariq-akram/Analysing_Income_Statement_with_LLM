@@ -1,6 +1,6 @@
 import streamlit as st
 from utils.table_extraction import extract_tables_from_pdf
-from utils.summarization import initialize_llm_pipeline, summarize_table
+from utils.summarization import  summarize_table
 import pandas as pd
 import os
 import uuid
@@ -335,13 +335,13 @@ def main():
             # ------------------ Summarization Section ------------------
             st.markdown('<div class="section"><div class="subheader">📝 Summarization</div>', unsafe_allow_html=True)
             if dfs:
-                llm_pipeline = initialize_llm_pipeline()
+                # llm_pipeline = initialize_llm_pipeline()
                 # Summarization
                 st.header("📝 Summarization")
                 try:
                     for idx, df in enumerate(dfs):
                         table_text = df.to_string(index=False)
-                        summary = summarize_table(llm_pipeline, table_text)
+                        summary = summarize_table(table_text)
                         st.subheader(f"Summary of Table {idx + 1}")
                         
                         st.write(summary)
